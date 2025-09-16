@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Car</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, cyan, #2563eb);
+    }
+
+    .form-container {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2d2d2d;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: #4a4a4a;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #2563eb;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>🚘 Register Your Car</h1>
+
+    <form action="registercar" method="get">
+      <div class="form-group">
+        <label for="carid">Car ID</label>
+        <input type="text" id="carid" name="carid" required>
+      </div>
+
+      <div class="form-group">
+        <label for="carname">Car Name</label>
+        <input type="text" id="carname" name="carname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="carmodel">Car Model</label>
+        <input type="text" id="carmodel" name="carmodel" required>
+      </div>
+
+      <div class="form-group">
+        <label for="carnumber">Car Number</label>
+        <input type="text" id="carnumber" name="carnumber" required>
+      </div>
+
+      <div class="form-group">
+        <label for="ownername">Owner Name</label>
+        <input type="text" id="ownername" name="ownername" required>
+      </div>
+
+      <button type="submit">✅ Register Car</button>
+    </form>
+  </div>
+</body>
+</html>
