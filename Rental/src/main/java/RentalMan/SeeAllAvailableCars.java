@@ -1,6 +1,8 @@
 package RentalMan;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -24,6 +26,7 @@ public class SeeAllAvailableCars extends HttpServlet{
 		
 		et.begin();
 		List<Car> cars = em.createQuery("Select c From Car c where c.status='available'",Car.class).getResultList();
+		Collections.sort(cars,Comparator.comparingInt(Car::getCarid));
 		req.setAttribute("cars", cars);
 		RequestDispatcher rd = req.getRequestDispatcher("displaycars.jsp");
 		rd.forward(req, resp);

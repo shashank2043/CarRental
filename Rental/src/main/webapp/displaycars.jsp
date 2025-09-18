@@ -67,6 +67,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.06);
       display:flex;
       flex-direction:column;
+      justify-content:space-between;
       gap:14px;
       border:1px solid #e5e7eb;
       transition:transform .2s ease, box-shadow .2s ease;
