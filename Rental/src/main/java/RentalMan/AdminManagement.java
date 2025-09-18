@@ -1,6 +1,8 @@
 package RentalMan;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,8 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/managebookings")
-public class AdminBookingManagement extends HttpServlet{
+@WebServlet("/admin")
+public class AdminManagement extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("app");
@@ -23,8 +25,11 @@ public class AdminBookingManagement extends HttpServlet{
 		EntityTransaction et = em.getTransaction();
 		
 		List<Booking> bookings = em.createQuery("Select b from Booking b").getResultList();
+		List<Car> cars = em.createQuery("Select c From Car c").getResultList();
+		req.setAttribute("cars", cars);
 		req.setAttribute("bookings", bookings);
-		RequestDispatcher rd = req.getRequestDispatcher("displaybookings.jsp");
+		Collections.sort(cars,Comparator.comparingInt(Car::getCarid));
+		RequestDispatcher rd = req.getRequestDispatcher("adminpage.jsp");
 		rd.forward(req, resp);
 	}
 }
