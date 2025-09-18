@@ -20,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 public class SeeAllAvailableCars extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("app");
-		EntityManager em = emf.createEntityManager();
+
+		EntityManager em = EMFProvider.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		
 		et.begin();

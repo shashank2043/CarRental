@@ -167,7 +167,7 @@
 
     <div class="grid">
       <% List<Car> cars = (List<Car>) request.getAttribute("cars");
-         if (cars != null) {
+         if (cars != null && !cars.isEmpty()) {
            for (Car c : cars) {
       %>
       <article class="card">

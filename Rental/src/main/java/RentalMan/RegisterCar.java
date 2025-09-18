@@ -3,9 +3,8 @@ package RentalMan;
 import java.io.IOException;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,12 +28,15 @@ public class RegisterCar extends HttpServlet {
 
 		Car car = new Car(carid, carname, carmodel, carnumber, ownername);
 		System.out.println(car);
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("app");
-		EntityManager em = emf.createEntityManager();
+
+		EntityManager em = EMFProvider.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 
 		et.begin();
 		em.persist(car);
 		et.commit();
+		em.close();
+		RequestDispatcher rd = req.getRequestDispatcher("carregistered.html");
+		rd.forward(req, resp);
 	}
 }
