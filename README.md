@@ -4,7 +4,7 @@
 
 ## Demo
 
-🌐 [Live App](https://car-rental-one-nu-93.vercel.app/)
+🌐 [Live App](https://carrental-5r92.onrender.com)
 
 ## Features
 
